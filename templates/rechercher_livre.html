@@ -1,0 +1,19 @@
+<!-- rechercher_livre.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Rechercher un livre</h2>
+    <form method="GET">
+        <input type="text" name="q" placeholder="Titre du livre">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {% if livres %}
+        <h3>Résultats de la recherche :</h3>
+        <ul>
+            {% for livre in livres %}
+                <li>{{ livre.titre }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

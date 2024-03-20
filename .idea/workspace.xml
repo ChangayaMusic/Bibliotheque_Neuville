@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c09a99fd-2b1a-46d2-ab93-0de3967b7c5e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/djangoProject1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/migrations/0002_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bibliotheque/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangoProject1/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangoProject1/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangoProject1/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangoProject1/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangoProject1/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usermanagement/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usermanagement/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usermanagement/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usermanagement/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usermanagement/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usermanagement/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usermanagement/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usermanagement/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usermanagement/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2djFLHhb6GZLbBYg7cIAKJSxd0w" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\flavieu\Documents\Python\library\djangoProject1\templates" />
+      <recent name="C:\Users\flavieu\Documents\Python\library\djangoProject1\bibliotheque" />
+      <recent name="C:\Users\flavieu\Documents\Python\library\djangoProject1\usermanagement" />
+      <recent name="C:\Users\flavieu\Documents\Python\library\djangoProject1\templates\static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="djangoProject1" type="Python.DjangoServer" factoryName="Django server">
+      <module name="djangoProject1" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c09a99fd-2b1a-46d2-ab93-0de3967b7c5e" name="Changes" comment="" />
+      <created>1710513522405</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710513522405</updated>
+      <workItem from="1710513553310" duration="1725000" />
+      <workItem from="1710515301947" duration="1426000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
