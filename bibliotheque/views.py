@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import LivreForm  # Importez le formulaire LivreForm depuis le même répertoire
+from .forms import LivreForm, PretForm 
 from .models import Livre
 from django.http import HttpResponse
+from django.contrib import messages
 
 def test_view(request):
     return HttpResponse("Test view works!")
@@ -9,18 +10,20 @@ def test_view(request):
 def home_view(request):
     return render(request, 'home.html')
 
+
 def add_book_view(request):
     if request.method == 'POST':
-        form = LivreForm(request.POST)
+        form = LivreForm(request.POST)  # Instanciation du formulaire
         if form.is_valid():
             form.save()
-            # Redirection vers la page de succès
+            messages.success(request, "Le livre a été ajouté avec succès.")
             return redirect('success_page')
         else:
-            # Redirection vers la page d'erreur si le formulaire est invalide
-            return redirect('error_page')
+            print(form.errors)
+            messages.error(request, "Il y a des erreurs dans le formulaire.")
+            return render(request, 'add_book.html', {'form': form})
     else:
-        form = LivreForm()
+        form = LivreForm()  # Instanciation du formulaire
     return render(request, 'add_book.html', {'form': form})
 
 def modify_livre(request, livre_id):
@@ -32,6 +35,7 @@ def modify_livre(request, livre_id):
             # Redirection vers la page de succès
             return redirect('success_page')
         else:
+            
             # Redirection vers la page d'erreur si le formulaire est invalide
             return redirect('error_page')
     else:
@@ -43,3 +47,25 @@ def error_page(request):
 
 def success_page(request):
     return render(request, 'success.html')
+
+
+
+def liste_livres(request):
+    livres = Livre.objects.all()
+    return render(request, 'liste_livres.html', {'livres': livres})
+
+def pret(request, livre_id):
+    livre = get_object_or_404(Livre, pk=livre_id)
+    if request.method == 'POST':
+        form = PretForm(request.POST, instance=livre)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Les informations du livre ont été mises à jour avec succès.")
+            return redirect('liste_livres')  # Remplacez par le nom de votre vue de liste de livres
+        else:
+            messages.error(request, "Veuillez corriger les erreurs dans le formulaire.")
+    else:
+        form = PretForm(instance=livre)
+    
+    return render(request, 'pret.html', {'form': form})
+

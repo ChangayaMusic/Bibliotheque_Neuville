@@ -14,4 +14,6 @@ urlpatterns = [
     path('add-book/', views.add_book_view, name='add_book'),
     path('erreur/', views.error_page, name='error_page'),
     path('succes/', views.success_page, name='success_page'),
+    path('livres/', views.liste_livres, name='liste_livres'),
+    path('livres/pret/<int:livre_id>/', views.pret, name='pret'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,12 +1,22 @@
-<!-- error.html -->
 {% extends 'base.html' %}
 
-{% block title %}Error - Library Management System{% endblock %}
 
 {% block content %}
-<div>
-    <h1>Error!</h1>
-    <p>Oops! Something went wrong. Please try again later.</p>
-    
+{% load static %}
+<style>
+ 
+  .custom-text {
+      font-family: 'Asap Condensed', sans-serif;
+      font-weight: bold;
+      margin-top: 2vw; /* Marge relative à la largeur de la vue */
+      font-size: 4vw; /* Taille relative à la largeur de la vue */
+      text-align: center; /* Centrer le texte */
+  }
+</style>
+
+<div style="text-align: center;">
+  <img src="{% static 'error.gif' %}" alt="Erreur lors de l'action" style="width: 50%; height: auto;">
+  <p class="custom-text">Erreur, veuillez réésayer.</p>
 </div>
+
 {% endblock %}

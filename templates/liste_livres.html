@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #009879;
+    }
+    th {
+        background-color: #009087;
+        color: #ffffff;
+        text-transform: uppercase;
+    }
+    tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+    tr:hover {
+        background-color: #009087;
+    }
+    h2 {
+        text-align: center; /* Centrer le texte horizontalement */
+        font-size : 35px
+
+    }
+</style>
+
+<h2>Liste des Livres</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Titre</th>
+    <th>Auteur</th>
+    <th>Date de Publication</th>
+    <th>Genre</th>
+    <th>Format</th>
+    <th>Disponible</th>
+    <th>Prêté à</th>
+
+    <th>Actions</th> <!-- Colonne pour les actions -->
+  </tr>
+  {% for livre in livres %}
+  <tr>
+    <td>{{ livre.id }}</td>
+    <td>{{ livre.titre }}</td>
+    <td>{{ livre.auteur }}</td>
+    <td>{{ livre.date_publication }}</td>
+    <td>{{ livre.get_genre_display }}</td>
+    <td>{{ livre.get_format_display }}</td>
+    <td>{{ livre.pret|yesno:"Non,Oui" }}</td>
+    <td>{{ livre.lecteur }}</td>
+
+    <td>
+      <a href="{% url 'pret' livre.id %}" class="btn btn-primary">Modifier</a> 
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

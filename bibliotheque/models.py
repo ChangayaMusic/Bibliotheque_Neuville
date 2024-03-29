@@ -43,7 +43,7 @@ class Livre(models.Model):
 
     titre = models.CharField(max_length=200)
     auteur = models.CharField(max_length=100)
-    date_publication = models.DateField()
+    date_publication = models.IntegerField()
     genre = models.CharField(max_length=50, choices=TITRE_CHOICES)
     date_ajout = models.DateField(auto_now_add=True)
     format = models.CharField(max_length=10, choices=FORMAT_CHOICES)
