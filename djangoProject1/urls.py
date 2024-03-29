@@ -14,6 +14,4 @@ urlpatterns = [
     path('add-book/', views.add_book_view, name='add_book'),
     path('erreur/', views.error_page, name='error_page'),
     path('succes/', views.success_page, name='success_page'),
-]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
