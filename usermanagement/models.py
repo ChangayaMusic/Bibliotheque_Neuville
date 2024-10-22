@@ -11,6 +11,7 @@ class CustomUser(AbstractUser):
     telephone = models.CharField(max_length=15, null=True, blank=True)
     adresse = models.TextField(null=True, blank=True)
     username = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+   
 
 
 

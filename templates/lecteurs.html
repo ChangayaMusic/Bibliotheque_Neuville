@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #009879;
+    }
+    th {
+        background-color: #009087;
+        color: #ffffff;
+        text-transform: uppercase;
+    }
+    tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+    tr:hover {
+        background-color: #009087;
+    }
+    h2 {
+        text-align: center;
+        font-size: 35px;
+    }
+    .search-container {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .search-box {
+        padding: 10px;
+        font-size: 16px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .search-button {
+        padding: 10px 20px;
+        background-color: #009087;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<h2>Liste des Lecteurs</h2>
+<form method="GET" action="{% url 'afficher_lecteurs' %}">
+    <input type="text" name="q" placeholder="Rechercher un lecteur" value="{{ query }}">
+    <button type="submit">Rechercher</button>
+</form>
+<table>
+    <tr>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+        <th>Adresse</th>
+        <th>Date d'inscription</th>
+        <th>Actions</th> <!-- Colonne pour les actions -->
+    </tr>
+    {% for lecteur in lecteurs %}
+    <tr>
+        <td>{{ lecteur.prenom }}</td>
+        <td>{{ lecteur.nom }}</td>
+        <td>{{ lecteur.email }}</td>
+        <td>{{ lecteur.telephone }}</td>
+        <td>{{ lecteur.adresse }}</td>
+        <td>{{ lecteur.date_inscription }}</td>
+        <td>
+            <a href="{% url 'afficher_livres' lecteur.username %}" class="btn btn-primary">Afficher Livres</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="7">Aucun lecteur trouvé.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Livres de {{ lecteur.prenom }} {{ lecteur.nom }}
+{% endblock %}
+
+{% block content %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #009879;
+    }
+    th {
+        background-color: #009087;
+        color: #ffffff;
+        text-transform: uppercase;
+    }
+    tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+    tr:hover {
+        background-color: #009087;
+    }
+    h2 {
+        text-align: center;
+        font-size: 35px;
+    }
+    .search-container {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .search-box {
+        padding: 10px;
+        font-size: 16px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .search-button {
+        padding: 10px 20px;
+        background-color: #009087;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2>Liste des Livres de {{ lecteur.prenom }} {{ lecteur.nom }}</h2>
+
+    <form method="GET" action="{% url 'afficher_lecteurs' %}" class="search-container">
+        
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Date de publication</th>
+                <th>État</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for livre in livres %}
+                <tr>
+                    <td>{{ livre.titre }}</td>
+                    <td>{{ livre.auteur }}</td>
+                    <td>{{ livre.date_publication|date:"d/m/Y" }}</td>
+                    <td>{{ livre.etat }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">Aucun livre trouvé.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <a href="{% url 'afficher_lecteurs' %}" class="btn btn-secondary">Retour à la liste des lecteurs</a>
+</div>
+
+{% endblock %}
