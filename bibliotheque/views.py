@@ -3,6 +3,9 @@ from .forms import LivreForm, PretForm
 from .models import Livre
 from django.http import HttpResponse
 from django.contrib import messages
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Livre
 
 def test_view(request):
     return HttpResponse("Test view works!")
@@ -51,8 +54,17 @@ def success_page(request):
 
 
 def liste_livres(request):
+    query = request.GET.get('q')  # Récupérer le terme de recherche depuis l'URL
     livres = Livre.objects.all()
-    return render(request, 'liste_livres.html', {'livres': livres})
+
+    # Si une requête de recherche est présente, filtrer les livres
+    if query:
+        livres = livres.filter(
+            Q(titre__icontains=query) |  # Chercher par titre
+            Q(auteur__icontains=query)   # Chercher par auteur
+        )
+
+    return render(request, 'liste_livres.html', {'livres': livres, 'query': query})
 
 def pret(request, livre_id):
     livre = get_object_or_404(Livre, pk=livre_id)

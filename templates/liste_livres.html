@@ -31,41 +31,70 @@
         background-color: #009087;
     }
     h2 {
-        text-align: center; /* Centrer le texte horizontalement */
-        font-size : 35px
-
+        text-align: center;
+        font-size: 35px;
+    }
+    .search-container {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .search-box {
+        padding: 10px;
+        font-size: 16px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .search-button {
+        padding: 10px 20px;
+        background-color: #009087;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
 </style>
 
 <h2>Liste des Livres</h2>
+
+<!-- Formulaire de recherche -->
+<div class="search-container">
+    <form method="GET" action="{% url 'liste_livres' %}">
+        <input type="text" name="q" placeholder="Rechercher un livre" value="{{ query }}" class="search-box">
+        <button type="submit" class="search-button">Rechercher</button>
+    </form>
+</div>
+
 <table>
-  <tr>
-    <th>ID</th>
-    <th>Titre</th>
-    <th>Auteur</th>
-    <th>Date de Publication</th>
-    <th>Genre</th>
-    <th>Format</th>
-    <th>Disponible</th>
-    <th>Prêté à</th>
-
-    <th>Actions</th> <!-- Colonne pour les actions -->
-  </tr>
-  {% for livre in livres %}
-  <tr>
-    <td>{{ livre.id }}</td>
-    <td>{{ livre.titre }}</td>
-    <td>{{ livre.auteur }}</td>
-    <td>{{ livre.date_publication }}</td>
-    <td>{{ livre.get_genre_display }}</td>
-    <td>{{ livre.get_format_display }}</td>
-    <td>{{ livre.pret|yesno:"Non,Oui" }}</td>
-    <td>{{ livre.lecteur }}</td>
-
-    <td>
-      <a href="{% url 'pret' livre.id %}" class="btn btn-primary">prêter / restituer</a> 
-    </td>
-  </tr>
-  {% endfor %}
+    <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Date de Publication</th>
+        <th>Genre</th>
+        <th>Format</th>
+        <th>Disponible</th>
+        <th>Prêté à</th>
+        <th>Actions</th> <!-- Colonne pour les actions -->
+    </tr>
+    {% for livre in livres %}
+    <tr>
+        <td>{{ livre.id }}</td>
+        <td>{{ livre.titre }}</td>
+        <td>{{ livre.auteur }}</td>
+        <td>{{ livre.date_publication }}</td>
+        <td>{{ livre.get_genre_display }}</td>
+        <td>{{ livre.get_format_display }}</td>
+        <td>{{ livre.pret|yesno:"Non,Oui" }}</td>
+        <td>{{ livre.lecteur }}</td>
+        <td>
+            <a href="{% url 'pret' livre.id %}" class="btn btn-primary">Prêter / Restituer</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="9">Aucun livre trouvé.</td>
+    </tr>
+    {% endfor %}
 </table>
 {% endblock %}
