@@ -64,22 +64,22 @@
     <tr>
         <th>Prénom</th>
         <th>Nom</th>
-        <th>Email</th>
+        
         <th>Téléphone</th>
         <th>Adresse</th>
         <th>Date d'inscription</th>
         <th>Actions</th> <!-- Colonne pour les actions -->
-    </tr>
+    </tr>s
     {% for lecteur in lecteurs %}
     <tr>
         <td>{{ lecteur.prenom }}</td>
         <td>{{ lecteur.nom }}</td>
-        <td>{{ lecteur.email }}</td>
+        
         <td>{{ lecteur.telephone }}</td>
         <td>{{ lecteur.adresse }}</td>
         <td>{{ lecteur.date_inscription }}</td>
         <td>
-            <a href="{% url 'afficher_livres' lecteur.username %}" class="btn btn-primary">Afficher Livres</a>
+            <a href="{% url 'afficher_livres' lecteur.username %}" class="button">Afficher Livres</a>
         </td>
     </tr>
     {% empty %}

@@ -81,3 +81,16 @@ def pret(request, livre_id):
     
     return render(request, 'pret.html', {'form': form})
 
+def edit_livre(request, livre_id):
+    livre = get_object_or_404(Livre, id=livre_id)
+    
+    if request.method == "POST":
+        form = LivreForm(request.POST, instance=livre)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_livres')  # Redirection après modification
+    else:
+        form = LivreForm(instance=livre)
+    
+    return render(request, 'edit_livre.html', {'form': form, 'livre': livre})
+

@@ -66,35 +66,37 @@
 </div>
 
 <table>
-    <tr>
-        <th>ID</th>
-        <th>Titre</th>
-        <th>Auteur</th>
-        <th>Date de Publication</th>
-        <th>Genre</th>
-        <th>Format</th>
-        <th>Disponible</th>
-        <th>Prêté à</th>
-        <th>Actions</th> <!-- Colonne pour les actions -->
-    </tr>
-    {% for livre in livres %}
-    <tr>
-        <td>{{ livre.id }}</td>
-        <td>{{ livre.titre }}</td>
-        <td>{{ livre.auteur }}</td>
-        <td>{{ livre.date_publication }}</td>
-        <td>{{ livre.get_genre_display }}</td>
-        <td>{{ livre.get_format_display }}</td>
-        <td>{{ livre.pret|yesno:"Non,Oui" }}</td>
-        <td>{{ livre.lecteur }}</td>
-        <td>
-            <a href="{% url 'pret' livre.id %}" class="btn btn-primary">Prêter / Restituer</a>
-        </td>
-    </tr>
-    {% empty %}
-    <tr>
-        <td colspan="9">Aucun livre trouvé.</td>
-    </tr>
-    {% endfor %}
+  <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Auteur</th>
+      <th>Date de Publication</th>
+      <th>Genre</th>
+      <th>Format</th>
+      <th>Disponible</th>
+      <th>Prêté à</th>
+      <th>Actions</th> <!-- Colonne pour les actions -->
+  </tr>
+  {% for livre in livres %}
+  <tr>
+      <td>{{ livre.id }}</td>
+      <td>{{ livre.titre }}</td>
+      <td>{{ livre.auteur }}</td>
+      <td>{{ livre.date_publication }}</td>
+      <td>{{ livre.get_genre_display }}</td>
+      <td>{{ livre.get_format_display }}</td>
+      <td>{{ livre.pret|yesno:"Non,Oui" }}</td>
+      <td>{{ livre.lecteur }}</td>
+      <td>
+        <a href="{% url 'pret' livre.id %}" class="button">Prêter / Restituer</a>
+        <a href="{% url 'edit_livre' livre.id %}" class="button">Modifier</a> <!-- Bouton Modifier -->
+        
+      </td>
+  </tr>
+  {% empty %}
+  <tr>s
+      <td colspan="9">Aucun livre trouvé.</td>
+  </tr>
+  {% endfor %}
 </table>
 {% endblock %}

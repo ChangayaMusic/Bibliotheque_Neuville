@@ -14,6 +14,7 @@ urlpatterns = [
     path('erreur/', views.error_page, name='error_page'),
     path('succes/', views.success_page, name='success_page'),
     path('livres/', views.liste_livres, name='liste_livres'),
+    path('livres/<int:livre_id>/edit/', views.edit_livre, name='edit_livre'),
     path('livres/pret/<int:livre_id>/', views.pret, name='pret'),
 
     # Nouvelle URL pour afficher les lecteurs

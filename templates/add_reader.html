@@ -6,112 +6,119 @@
             max-width: 500px;
             margin: auto;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+            border: 1px solid #009087;  /* Bordure verte */
+            border-radius: 10px;        /* Coins arrondis */
+            background-color: #f9f9f9;  /* Fond clair */
+            box-shadow: 0px 0px 10px rgba(0, 144, 135, 0.2); /* Ombre */
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* Espacement entre les groupes */
         }
 
         .form-group label {
-            display: block;
-            font-weight: bold;
+            display: block; 
+            font-weight: bold; 
+            color: #009087; /* Couleur des labels */
         }
 
         .form-group input[type="text"],
         .form-group textarea {
-            width: 95%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            width: 95%; /* Largeur des champs */
+            padding: 10px; /* Espacement interne */
+            font-size: 16px; /* Taille du texte */
+            border: 1px solid #009087; /* Bordure verte */
+            border-radius: 5px; /* Coins arrondis */
+            color: #333; /* Couleur du texte */
+            box-sizing: border-box; /* Pour éviter les débordements */
         }
 
         .button {
             display: inline-block;
-            -webkit-transition: all 0.2s ease-in;
-            transition: all 0.2s ease-in;
             position: relative;
             overflow: hidden;
             z-index: 1;
-            color: #090909;
-            padding: 0.7em 1.7em;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 0.5em;
-            background: #e8e8e8;
-            border: 1px solid #e8e8e8;
-            -webkit-box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-            box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-          }
-          
+            color: #090909; /* Couleur du texte */
+            padding: 0.7em 1.7em; /* Espacement interne */
+            cursor: pointer; /* Curseur en forme de main */
+            font-size: 18px; /* Taille de la police */
+            border-radius: 0.5em; /* Coins arrondis */
+            background: #e8e8e8; /* Fond gris clair */
+            border: 1px solid #009087; /* Bordure verte */
+            transition: all 0.2s ease-in; /* Transition douce */
+            box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff; /* Ombre */
+        }
+
         .button:active {
-            color: #666;
-            -webkit-box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
-            box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+            color: #666; /* Couleur du texte au clic */
+            box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff; /* Ombre interne */
         }
-        
-        .button:before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            -webkit-transform: translateX(-50%) scaleY(1) scaleX(1.25);
-            -ms-transform: translateX(-50%) scaleY(1) scaleX(1.25);
-            transform: translateX(-50%) scaleY(1) scaleX(1.25);
-            top: 100%;
-            width: 140%;
-            height: 180%;
-            background-color: rgba(0, 0, 0, 0.05);
-            border-radius: 50%;
-            display: block;
-            -webkit-transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-            z-index: -1;
-        }
-        
+
+        .button:before,
         .button:after {
             content: "";
             position: absolute;
-            left: 55%;
-            -webkit-transform: translateX(-50%) scaleY(1) scaleX(1.45);
-            -ms-transform: translateX(-50%) scaleY(1) scaleX(1.45);
-            transform: translateX(-50%) scaleY(1) scaleX(1.45);
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1); /* Transition douce */
+            border-radius: 50%; /* Coins arrondis */
+            display: block; /* Afficher le bloc */
+        }
+
+        .button:before {
+            top: 100%;
+            width: 140%;
+            height: 180%;
+            background-color: rgba(0, 144, 135, 0.1); /* Fond léger */
+            z-index: -1; /* Derrière le bouton */
+        }
+
+        .button:after {
             top: 180%;
             width: 160%;
             height: 190%;
-            background-color: #009087;
-            border-radius: 50%;
-            display: block;
-            -webkit-transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-            z-index: -1;
+            background-color: #009087; /* Fond vert */
+            z-index: -1; /* Derrière le bouton */
         }
-        
+
         .button:hover {
-            color: #ffffff;
-            border: 1px solid #009087;
+            color: #ffffff; /* Couleur du texte au survol */
+            border: 1px solid #009087; /* Bordure verte */
+            background-color: #009087; /* Fond vert au survol */
         }
-        
+
         .button:hover:before {
-            top: -35%;
-            background-color: #009087;
-            -webkit-transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-            -ms-transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-            transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+            top: -35%; /* Animation au survol */
+            background-color: rgba(0, 144, 135, 0.75); /* Fond au survol */
+            transform: translateX(-50%) scaleY(1.3) scaleX(0.8); /* Effet de mise à l'échelle */
         }
-        
+
         .button:hover:after {
-            top: -45%;
-            background-color: #009087;
-            -webkit-transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-            -ms-transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-            transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+            top: -45%; /* Animation au survol */
+            background-color: #009087; /* Fond vert au survol */
+            transform: translateX(-50%) scaleY(1.3) scaleX(0.8); /* Effet de mise à l'échelle */
         }
 
         h2 {
-            text-align: center;
+            text-align: center; /* Centrer le titre */
+            color: #009087; /* Couleur du titre */
+        }
+
+        .messages {
+            margin-top: 20px; /* Espacement au-dessus des messages */
+            padding: 10px; /* Espacement interne */
+            border: 1px solid #009087; /* Bordure verte */
+            background-color: #f0fbfa; /* Fond léger pour les messages */
+            color: #009087; /* Couleur du texte des messages */
+            border-radius: 5px; /* Coins arrondis */
+        }
+
+        .messages .success {
+            color: #006f5d; /* Couleur pour les messages de succès */
+        }
+
+        .messages .error {
+            color: #870000; /* Couleur pour les messages d'erreur */
         }
     </style>
 
@@ -119,21 +126,32 @@
     <form method="post" class="custom-form">
         {% csrf_token %}
         <div class="form-group">
-            {{ form.nom.label_tag }}
-            {{ form.nom }}
+            {{ form.nom.label_tag }} <!-- Étiquette pour le nom -->
+            {{ form.nom }} <!-- Champ pour le nom -->
         </div>
         <div class="form-group">
-            {{ form.prenom.label_tag }}
-            {{ form.prenom }}
+            {{ form.prenom.label_tag }} <!-- Étiquette pour le prénom -->
+            {{ form.prenom }} <!-- Champ pour le prénom -->
         </div>
         <div class="form-group">
-            {{ form.telephone.label_tag }}
-            {{ form.telephone }}
+            {{ form.telephone.label_tag }} <!-- Étiquette pour le téléphone -->
+            {{ form.telephone }} <!-- Champ pour le téléphone -->
         </div>
         <div class="form-group">
-            {{ form.adresse.label_tag }}
-            {{ form.adresse }}
+            {{ form.adresse.label_tag }} <!-- Étiquette pour l'adresse -->
+            {{ form.adresse }} <!-- Champ pour l'adresse -->
         </div>
-        <button type="submit" class="button">Ajouter</button>
+        
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <button type="submit" class="button">Ajouter</button> <!-- Bouton d'ajout -->
     </form>
 {% endblock %}
