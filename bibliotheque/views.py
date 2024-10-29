@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.shortcuts import render
 from django.db.models import Q
 from .models import Livre
+from django.utils import timezone
 
 def test_view(request):
     return HttpResponse("Test view works!")
@@ -71,6 +72,7 @@ def pret(request, livre_id):
     if request.method == 'POST':
         form = PretForm(request.POST, instance=livre)
         if form.is_valid():
+            livre.date_pret = timezone.now()
             form.save()
             messages.success(request, "Les informations du livre ont été mises à jour avec succès.")
             return redirect('liste_livres')  # Remplacez par le nom de votre vue de liste de livres

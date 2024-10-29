@@ -30,62 +30,101 @@
     tr:hover {
         background-color: #009087;
     }
+    @keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Légère translation vers le haut */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Position originale */
+    }
+
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px); /* Légère élévation */
+        }
+        60% {
+            transform: translateY(-5px); /* Légère élévation */
+        }
+    }
+
     h2 {
         text-align: center;
         font-size: 35px;
+        color: #009087; /* Couleur du texte */
+        animation: fadeIn 1s ease-in-out, bounce 0.5s ease; /* Ajout de l'animation de fondu et rebond */
+        margin: 20px 0; /* Ajout d'une marge pour espacer le texte des éléments adjacents */
+        font-weight: bold; /* Gras pour le texte */
+        transition: color 0.5s ease; /* Transition de couleur lors du survol */
     }
-    .search-container {
-        text-align: center;
-        margin: 20px 0;
+
+    h2:hover {
+        color: #007066; /* Couleur lorsque le texte est survolé */
     }
-    .search-box {
-        padding: 10px;
-        font-size: 16px;
-        width: 300px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .search-button {
-        padding: 10px 20px;
-        background-color: #009087;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .search-box {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-button {
+            padding: 10px 20px;
+            background-color: #009087;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 </style>
 
-<h2>Liste des Lecteurs</h2>
-<form method="GET" action="{% url 'afficher_lecteurs' %}">
-    <input type="text" name="q" placeholder="Rechercher un lecteur" value="{{ query }}">
-    <button type="submit">Rechercher</button>
-</form>
-<table>
-    <tr>
-        <th>Prénom</th>
-        <th>Nom</th>
-        
-        <th>Téléphone</th>
-        <th>Adresse</th>
-        <th>Date d'inscription</th>
-        <th>Actions</th> <!-- Colonne pour les actions -->
-    </tr>s
-    {% for lecteur in lecteurs %}
-    <tr>
-        <td>{{ lecteur.prenom }}</td>
-        <td>{{ lecteur.nom }}</td>
-        
-        <td>{{ lecteur.telephone }}</td>
-        <td>{{ lecteur.adresse }}</td>
-        <td>{{ lecteur.date_inscription }}</td>
-        <td>
-            <a href="{% url 'afficher_livres' lecteur.username %}" class="button">Afficher Livres</a>
-        </td>
-    </tr>
-    {% empty %}
-    <tr>
-        <td colspan="7">Aucun lecteur trouvé.</td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="container mt-5">
+    <h2>Liste des Lecteurs</h2>
+
+    <form method="GET" action="{% url 'afficher_lecteurs' %}" class="search-container">
+        <input type="text" name="q" class="search-box" placeholder="Rechercher un lecteur" value="{{ query }}">
+        <button type="submit" class="search-button">Rechercher</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Téléphone</th>
+                <th>Adresse</th>
+                <th>Date d'inscription</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lecteur in lecteurs %}
+                <tr>
+                    <td>{{ lecteur.prenom }}</td>
+                    <td>{{ lecteur.nom }}</td>
+                    <td>{{ lecteur.telephone }}</td>
+                    <td>{{ lecteur.adresse }}</td>
+                    <td>{{ lecteur.date_inscription }}</td>
+                    <td>
+                        <a href="{% url 'afficher_livres' lecteur.username %}" class="button">Afficher Livres</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6">Aucun lecteur trouvé.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

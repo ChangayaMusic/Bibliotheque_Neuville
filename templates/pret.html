@@ -62,6 +62,43 @@
     button[type="submit"]:hover {
         background-color: #007a6c;
     }
+    @keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Légère translation vers le haut */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Position originale */
+    }
+
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px); /* Légère élévation */
+        }
+        60% {
+            transform: translateY(-5px); /* Légère élévation */
+        }
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 35px;
+        color: #009087; /* Couleur du texte */
+        animation: fadeIn 1s ease-in-out, bounce 0.5s ease; /* Ajout de l'animation de fondu et rebond */
+        margin: 20px 0; /* Ajout d'une marge pour espacer le texte des éléments adjacents */
+        font-weight: bold; /* Gras pour le texte */
+        transition: color 0.5s ease; /* Transition de couleur lors du survol */
+    }
+
+    h2:hover {
+        color: #007066; /* Couleur lorsque le texte est survolé */
+    }
 </style>
 
 <h1>Formulaire de prêt de livre</h1>

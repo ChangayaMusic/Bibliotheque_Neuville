@@ -1,24 +1,24 @@
 {% extends 'base.html' %}
 
-{% block title %}
-    Livres de {{ lecteur.prenom }} {{ lecteur.nom }}
-{% endblock %}
-
 {% block content %}
 <style>
     table {
         width: 100%;
         border-collapse: collapse;
         margin: 25px 0;
+
         font-size: 0.9em;
         font-family: sans-serif;
         min-width: 400px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        
     }
     th, td {
         padding: 12px 15px;
         text-align: left;
         border-bottom: 1px solid #009879;
+        
     }
     th {
         background-color: #009087;
@@ -34,64 +34,88 @@
     tr:hover {
         background-color: #009087;
     }
+    @keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Légère translation vers le haut */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Position originale */
+    }
+
+}
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px); /* Légère élévation */
+        }
+        60% {
+            transform: translateY(-5px); /* Légère élévation */
+        }
+    }
+
     h2 {
         text-align: center;
         font-size: 35px;
+        color: #009087; /* Couleur du texte */
+        animation: fadeIn 1s ease-in-out, bounce 0.5s ease; /* Ajout de l'animation de fondu et rebond */
+        margin: 20px 0; /* Ajout d'une marge pour espacer le texte des éléments adjacents */
+        font-weight: bold; /* Gras pour le texte */
+        transition: color 0.5s ease; /* Transition de couleur lors du survol */
     }
-    .search-container {
-        text-align: center;
-        margin: 20px 0;
+
+    h2:hover {
+        color: #007066; /* Couleur lorsque le texte est survolé */
     }
-    .search-box {
-        padding: 10px;
-        font-size: 16px;
-        width: 300px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .search-button {
-        padding: 10px 20px;
-        background-color: #009087;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+        .search-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #009087;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            margin: 20px 0;
+        }
 </style>
 
-<div class="container mt-5">
-    <h2>Liste des Livres de {{ lecteur.prenom }} {{ lecteur.nom }}</h2>
-
-    <form method="GET" action="{% url 'afficher_lecteurs' %}" class="search-container">
-        
-    </form>
-
-    <table>
-        <thead>
+<h2>Livres empruntés par {{ lecteur.prenom }} {{ lecteur.nom }}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Date de publication</th>
+            <th>État</th>
+            <th>Date de prêt</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for livre in livres %}
             <tr>
-                <th>Titre</th>
-                <th>Auteur</th>
-                <th>Date de publication</th>
-                <th>État</th>
+                <td>{{ livre.titre }}</td>
+                <td>{{ livre.auteur }}</td>
+                <td>{{ livre.date_publication }}</td>
+                <td>{{ livre.pret|yesno:"Prêté, Disponible" }}</td>
+                <td>
+                    {% if livre.date_pret %}
+                        {{ livre.date_pret|date:"d F Y" }}
+                    {% else %}
+                        Non prêté
+                    {% endif %}
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            {% for livre in livres %}
-                <tr>
-                    <td>{{ livre.titre }}</td>
-                    <td>{{ livre.auteur }}</td>
-                    <td>{{ livre.date_publication|date:"d/m/Y" }}</td>
-                    <td>{{ livre.etat }}</td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="4">Aucun livre trouvé.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    
-    <a href="{% url 'afficher_lecteurs' %}" class="btn btn-secondary">Retour à la liste des lecteurs</a>
-</div>
-
+        {% empty %}
+            <tr>
+                <td colspan="5">Aucun livre trouvé.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'afficher_lecteurs' %}" class="search-button">Retour à la liste des lecteurs</a>
 {% endblock %}

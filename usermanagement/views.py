@@ -39,7 +39,6 @@ def afficher_lecteurs(request):
     return render(request, 'lecteurs.html', {'lecteurs': lecteurs, 'query': query})
 
 def afficher_livres(request, username):
-    # Utilisez username au lieu de id pour récupérer le lecteur
     lecteur = get_object_or_404(CustomUser, username=username)
-    livres = lecteur.livres.all()  # On suppose que le champ livres est défini correctement
+    livres = lecteur.livres.all()
     return render(request, 'livres.html', {'lecteur': lecteur, 'livres': livres})
